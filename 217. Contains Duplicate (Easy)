@@ -1,0 +1,26 @@
+
+217. Contains Duplicate
+Solved
+Easy
+Topics
+Companies
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        #given an array of integers nums
+        #return true if any value appears twice 
+        #false if every element is distinct
+        empty_set= set()
+        for i in nums:
+            empty_set.add(i)
+        x = len(empty_set)
+        y = len(nums)
+        
+
+        if (x ==y):
+            return False
+        else:
+            return True
+        
