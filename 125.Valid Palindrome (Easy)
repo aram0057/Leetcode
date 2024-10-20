@@ -1,0 +1,50 @@
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+ 
+
+Example 1:
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+Example 2:
+
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+Example 3:
+
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+
+
+import re
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        # Given string s
+        # Remove non-alphanumeric characters and make all lowercase
+        s_new = s.lower()
+        s_new1 = re.sub(r'[^a-z0-9]', '', s_new)
+
+        # Initialize left and right pointers
+        left = 0
+        right = len(s_new1) - 1
+
+        # Check for palindrome
+        while left < right:
+            if s_new1[left] != s_new1[right]:
+                return False  # Not a palindrome
+            left += 1
+            right -= 1
+
+        return True  # Is a palindrome
+
+# Example usage
+solution = Solution()
+print(solution.isPalindrome("A man, a plan, a canal: Panama"))  # Output: True
+print(solution.isPalindrome("race a car"))  # Output: False
